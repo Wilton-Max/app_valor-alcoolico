@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    color: whitesmoke;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background-image: linear-gradient(to bottom, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    background-image: linear-gradient(to right bottom, #151a18, #32473f, #517969, #72af98, #95e9c8);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #fafffa; /* Verde suave */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 500;
+    color: #bebebe; /* Cinza escuro */
+}
+
+select, input {
+    padding: 12px;
+    border: 1px solid #ccc; /* Cinza claro */
+    border-radius: 8px;
+    font-size: 0.8em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input{
+    width: 350px;
+    margin: 0 auto;
+}
+
+select:focus, input:focus {
+    border-color: #4caf50; /* Verde suave */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-image: linear-gradient(to right, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #388e3c; /* Verde escuro */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#result {
+    margin-top: 20px;
+    color: white;
+   padding-bottom: 30px;
+    border: 1px solid #ccc; /* Cinza claro */
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #030303; /* Cinza claro */
+    border-radius: 0 0 12px 12px;
+    margin-top: 20px;
+}

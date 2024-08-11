@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Valor Alcoólico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Valor Alcoólico</h1>
+        </header>
+        <main>
+            <section class="calculator">
+                <h2>Calcule o Valor Alcoólico</h2>
+                <form id="calc-form">
+                    <label for="total-volume">Volume Total da Bebida (ml):</label>
+                    <input type="number" id="total-volume" placeholder="Digite o volume total da bebida" required>
+
+                    <label for="volume">Volume da Dose (ml):</label>
+                    <input type="number" id="volume" placeholder="Digite o volume da dose" required>
+
+                    <label for="abv">Teor Alcoólico (% ABV):</label>
+                    <input type="number" id="abv" placeholder="Digite o teor alcoólico" required>
+
+                    <button type="submit">Calcular</button>
+                </form>
+
+                <div id="result">
+                    <h3>Resultado:</h3>
+                    <p id="result-text">Digite os dados e clique em Calcular.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Calculadora de Valor Alcoólico</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

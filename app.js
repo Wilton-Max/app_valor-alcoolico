@@ -1,0 +1,21 @@
+document.getElementById('calc-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Valores dos inputs
+    const totalVolume = parseFloat(document.getElementById('total-volume').value);
+    const doseVolume = parseFloat(document.getElementById('volume').value);
+    const abv = parseFloat(document.getElementById('abv').value);
+
+    // Calculos
+    const alcoholVolume = (abv / 100) * doseVolume;
+    const percentageOfTotalVolume = (doseVolume / totalVolume) * 100;
+
+    if (isNaN(totalVolume) || isNaN(doseVolume) || isNaN(abv) || totalVolume <= 0 || doseVolume <= 0 || abv <= 0) {
+        document.getElementById('result-text').textContent = 'Por favor, insira valores válidos.';
+        return;
+    }
+
+    // Saída
+    document.getElementById('result-text').textContent = 
+        `O volume de álcool puro na sua dose é ${alcoholVolume.toFixed(2)} ml, que corresponde a ${percentageOfTotalVolume.toFixed(2)}% de álcool em ${totalVolume} ml dessa bebida.`;
+});
