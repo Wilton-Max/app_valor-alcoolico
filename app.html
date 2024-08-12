@@ -1,0 +1,195 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Valor Alcoólico</title>
+    
+</head>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    color: whitesmoke;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background-image: linear-gradient(to bottom, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    background-image: linear-gradient(to right bottom, #151a18, #32473f, #517969, #72af98, #95e9c8);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #fafffa; /* Verde suave */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 500;
+    color: #bebebe; /* Cinza escuro */
+}
+
+select, input {
+    padding: 12px;
+    border: 1px solid #ccc; /* Cinza claro */
+    border-radius: 8px;
+    font-size: 0.8em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input{
+    width: 350px;
+    margin: 0 auto;
+}
+
+select:focus, input:focus {
+    border-color: #4caf50; /* Verde suave */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-image: linear-gradient(to right, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #388e3c; /* Verde escuro */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#result {
+    margin-top: 20px;
+    color: white;
+   padding-bottom: 30px;
+    border: 1px solid #ccc; /* Cinza claro */
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom, #5e020f, #650d1b, #6b1825, #712130, #762a3b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #030303; /* Cinza claro */
+    border-radius: 0 0 12px 12px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    input{
+        width: 55vw
+    }
+}
+  
+  </style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Valor Alcoólico</h1>
+        </header>
+        <main>
+            <section class="calculator">
+                <h2>Calcule o Valor Alcoólico</h2>
+                <form id="calc-form">
+                    <label for="total-volume">Volume Total da Bebida (ml):</label>
+                    <input type="number" id="total-volume" placeholder="Digite o volume total da bebida" required>
+
+                    <label for="volume">Volume da Dose (ml):</label>
+                    <input type="number" id="volume" placeholder="Digite o volume da dose" required>
+
+                    <label for="abv">Teor Alcoólico (% ABV):</label>
+                    <input type="number" id="abv" placeholder="Digite o teor alcoólico" required>
+
+                    <button type="submit">Calcular</button>
+                </form>
+
+                <div id="result">
+                    <h3>Resultado:</h3>
+                    <p id="result-text">Digite os dados e clique em Calcular.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Calculadora de Valor Alcoólico</p>
+        </footer>
+    </div>
+
+    <script>
+      document.getElementById('calc-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Valores dos inputs
+      const totalVolume = parseFloat(document.getElementById('total-volume').value);
+      const doseVolume = parseFloat(document.getElementById('volume').value);
+      const abv = parseFloat(document.getElementById('abv').value);
+
+      // Calculos
+      const alcoholVolume = (abv / 100) * doseVolume;
+      const percentageOfTotalVolume = (doseVolume / totalVolume) * 100;
+
+      if (isNaN(totalVolume) || isNaN(doseVolume) || isNaN(abv) || totalVolume <= 0 || doseVolume <= 0 || abv <= 0) {
+          document.getElementById('result-text').textContent = 'Por favor, insira valores válidos.';
+          return;
+      }
+
+      // Saída
+      document.getElementById('result-text').textContent = 
+          `O volume de álcool puro na sua dose é ${alcoholVolume.toFixed(2)} ml, que corresponde a ${percentageOfTotalVolume.toFixed(2)}% de álcool em ${totalVolume} ml dessa bebida.`;
+});
+    </script>
+</body>
+</html>
+
